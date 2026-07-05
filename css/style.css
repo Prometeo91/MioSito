@@ -1,0 +1,444 @@
+/* ============================================================
+   Fabio Piscopo — Astrologo e Tarologo
+   Tutte le decisioni grafiche (colori, font, spaziature, raggi)
+   sono centralizzate nelle variabili qui sotto: la grafica è una
+   prima proposta, pensata per essere iterata con Claude Design
+   modificando queste custom properties senza toccare l'HTML.
+   ============================================================ */
+
+:root {
+  /* Palette notturna */
+  --color-bg: #0d1026;
+  --color-bg-deep: #080a1c;
+  --color-surface: #161a38;
+  --color-surface-raised: #1d2246;
+  --color-border: rgba(212, 175, 105, 0.18);
+
+  /* Accenti */
+  --color-gold: #d4af69;
+  --color-gold-soft: #e8cf9a;
+  --color-violet: #8a7bd8;
+
+  /* Testo */
+  --color-text: #e9e6f2;
+  --color-text-muted: #a8a3c0;
+
+  /* Tipografia */
+  --font-display: "Cormorant Garamond", "Palatino Linotype", Palatino, Georgia, serif;
+  --font-body: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* Spaziature e forme */
+  --space-section: clamp(4rem, 10vw, 7rem);
+  --space-gutter: clamp(1.25rem, 4vw, 2.5rem);
+  --radius: 14px;
+  --max-width: 68rem;
+
+  /* Transizioni */
+  --ease: cubic-bezier(0.25, 0.8, 0.35, 1);
+}
+
+/* ---------- Reset essenziale ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--color-text);
+  background:
+    radial-gradient(ellipse at 20% -10%, rgba(138, 123, 216, 0.16), transparent 55%),
+    radial-gradient(ellipse at 85% 15%, rgba(212, 175, 105, 0.07), transparent 45%),
+    linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-deep) 100%);
+  background-attachment: fixed;
+}
+img { max-width: 100%; height: auto; display: block; }
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0 0 0.6em;
+  color: var(--color-text);
+}
+p { margin: 0 0 1em; }
+a { color: var(--color-gold-soft); }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation: none !important; transition: none !important; }
+}
+
+/* ---------- Cielo stellato ---------- */
+.starfield {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+.starfield .star {
+  position: absolute;
+  border-radius: 50%;
+  background: #fff;
+  opacity: 0.7;
+  animation: twinkle 4s ease-in-out infinite;
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.25; }
+  50% { opacity: 0.85; }
+}
+
+/* ---------- Header e navigazione ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(8, 10, 28, 0.82);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-border);
+}
+.nav {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0.9rem var(--space-gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.nav-brand {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  letter-spacing: 0.04em;
+  color: var(--color-gold);
+  text-decoration: none;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-links a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  transition: color 0.25s var(--ease);
+}
+.nav-links a:hover, .nav-links a:focus-visible { color: var(--color-gold-soft); }
+.nav-links .nav-cta {
+  color: var(--color-bg-deep);
+  background: var(--color-gold);
+  padding: 0.45rem 1.1rem;
+  border-radius: 999px;
+  font-weight: 600;
+}
+.nav-links .nav-cta:hover, .nav-links .nav-cta:focus-visible {
+  background: var(--color-gold-soft);
+  color: var(--color-bg-deep);
+}
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: 0;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+.nav-toggle span {
+  width: 24px;
+  height: 2px;
+  background: var(--color-gold);
+  transition: transform 0.25s var(--ease), opacity 0.25s var(--ease);
+}
+
+@media (max-width: 720px) {
+  .nav-toggle { display: flex; }
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: rgba(8, 10, 28, 0.97);
+    border-bottom: 1px solid var(--color-border);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s var(--ease);
+  }
+  .nav-links.open { max-height: 22rem; }
+  .nav-links li { text-align: center; }
+  .nav-links a { display: block; padding: 0.9rem; }
+  .nav-links .nav-cta { border-radius: 0; }
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  min-height: 82vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: var(--space-section) var(--space-gutter);
+  overflow: hidden;
+}
+.hero-inner { max-width: 42rem; }
+.hero-moon {
+  width: 64px;
+  height: 64px;
+  color: var(--color-gold);
+  margin-bottom: 1.5rem;
+}
+.hero-eyebrow, .section-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  font-size: 0.78rem;
+  color: var(--color-gold);
+  margin-bottom: 0.75rem;
+}
+.hero h1 {
+  font-size: clamp(2.6rem, 7vw, 4.2rem);
+  letter-spacing: 0.02em;
+}
+.hero-tagline {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 3vw, 1.6rem);
+  font-style: italic;
+  color: var(--color-gold-soft);
+  margin-bottom: 0.6rem;
+}
+.hero-sub {
+  color: var(--color-text-muted);
+  max-width: 34rem;
+  margin: 0 auto 2.2rem;
+}
+.hero-constellation {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  color: var(--color-violet);
+  opacity: 0.6;
+  pointer-events: none;
+}
+.hero-constellation svg { width: 100%; max-height: 180px; display: block; }
+
+/* ---------- Bottoni ---------- */
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 999px;
+  padding: 0.85rem 2.2rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), background 0.25s var(--ease);
+}
+.btn-primary {
+  background: linear-gradient(120deg, var(--color-gold), var(--color-gold-soft));
+  color: var(--color-bg-deep);
+  box-shadow: 0 6px 24px rgba(212, 175, 105, 0.25);
+}
+.btn-primary:hover, .btn-primary:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 32px rgba(212, 175, 105, 0.35);
+}
+
+/* ---------- Sezioni ---------- */
+.section { padding: var(--space-section) var(--space-gutter); }
+.section-inner { max-width: var(--max-width); margin: 0 auto; }
+.section h2 { font-size: clamp(1.9rem, 4.5vw, 2.7rem); }
+.section-intro { color: var(--color-text-muted); max-width: 44rem; margin-bottom: 2.5rem; }
+.section-alt {
+  background: linear-gradient(180deg, rgba(22, 26, 56, 0.55), rgba(22, 26, 56, 0.2));
+  border-block: 1px solid var(--color-border);
+}
+
+.divider {
+  display: flex;
+  justify-content: center;
+  color: var(--color-gold);
+  opacity: 0.75;
+}
+.divider svg { width: 200px; height: 20px; }
+
+/* ---------- Bio ---------- */
+.bio-grid {
+  display: grid;
+  grid-template-columns: minmax(200px, 280px) 1fr;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: start;
+  margin-top: 1.5rem;
+}
+.bio-photo { margin: 0; }
+.bio-photo-placeholder {
+  aspect-ratio: 3 / 4;
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+  display: grid;
+  place-content: center;
+  gap: 0.75rem;
+  text-align: center;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+}
+.bio-photo-placeholder svg { width: 90px; height: 90px; margin: 0 auto; opacity: 0.5; }
+.bio-text p { color: var(--color-text-muted); }
+.bio-text strong { color: var(--color-gold-soft); font-weight: 600; }
+
+@media (max-width: 720px) {
+  .bio-grid { grid-template-columns: 1fr; }
+  .bio-photo { max-width: 240px; }
+}
+
+/* ---------- Card servizi ---------- */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1.5rem;
+}
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.8rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s var(--ease), border-color 0.3s var(--ease), background 0.3s var(--ease);
+}
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(212, 175, 105, 0.45);
+  background: var(--color-surface-raised);
+}
+.card-icon {
+  width: 48px;
+  height: 48px;
+  color: var(--color-gold);
+  margin-bottom: 1.1rem;
+}
+.card-icon svg { width: 100%; height: 100%; }
+.card h3 { font-size: 1.35rem; margin-bottom: 0.4em; }
+.card p { color: var(--color-text-muted); font-size: 0.97rem; flex-grow: 1; }
+.card-meta {
+  margin: 1rem 0 0;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--color-border);
+  font-size: 0.82rem !important;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-gold) !important;
+  flex-grow: 0 !important;
+}
+
+/* ---------- Passi ---------- */
+.steps {
+  list-style: none;
+  margin: 2rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1.75rem;
+  counter-reset: step;
+}
+.step { position: relative; }
+.step-number {
+  display: grid;
+  place-content: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 50%;
+  border: 1px solid var(--color-gold);
+  color: var(--color-gold);
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  margin-bottom: 0.9rem;
+}
+.step h3 { font-size: 1.25rem; }
+.step p { color: var(--color-text-muted); font-size: 0.95rem; }
+
+/* ---------- Testimonianze ---------- */
+.quotes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.quote {
+  margin: 0;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.7rem 1.6rem;
+}
+.quote p {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--color-text);
+}
+.quote cite {
+  font-style: normal;
+  font-size: 0.88rem;
+  color: var(--color-gold);
+  letter-spacing: 0.05em;
+}
+
+/* ---------- Contatti ---------- */
+.contact-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1.25rem;
+}
+.contact-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.5rem;
+  text-decoration: none;
+  transition: transform 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+.contact-link:hover, .contact-link:focus-visible {
+  transform: translateY(-3px);
+  border-color: rgba(212, 175, 105, 0.5);
+}
+.contact-label {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.75rem;
+  color: var(--color-gold);
+}
+.contact-value { color: var(--color-text-muted); font-size: 0.95rem; }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  border-top: 1px solid var(--color-border);
+  background: var(--color-bg-deep);
+  padding: 3rem var(--space-gutter);
+  text-align: center;
+}
+.footer-inner { max-width: 44rem; margin: 0 auto; }
+.footer-name {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--color-gold);
+  margin-bottom: 0.8rem;
+}
+.footer-disclaimer { color: var(--color-text-muted); font-size: 0.85rem; }
+.footer-copy { color: var(--color-text-muted); font-size: 0.8rem; margin: 1rem 0 0; opacity: 0.8; }
+
+/* ---------- Animazioni di comparsa ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+.reveal.visible { opacity: 1; transform: none; }
