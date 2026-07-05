@@ -384,6 +384,39 @@ html { scroll-behavior: smooth; }
 .bio-text p { color: var(--color-text-muted); }
 .bio-text strong { color: var(--color-gold-soft); font-weight: 600; }
 
+.bio-pub {
+  margin-top: 2rem;
+  padding: 1.5rem 1.6rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-gold);
+  border-radius: var(--radius);
+}
+.bio-pub-label {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.72rem;
+  color: var(--color-gold);
+  margin-bottom: 0.5rem;
+}
+.bio-pub-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+}
+.bio-pub-desc { font-size: 0.93rem; margin-bottom: 1.1rem; }
+.bio-pub-link {
+  color: var(--color-gold-soft);
+  font-size: 0.93rem;
+  font-weight: 600;
+  text-decoration-color: rgba(212, 175, 105, 0.4);
+  text-underline-offset: 4px;
+  transition: color 0.25s var(--ease);
+}
+.bio-pub-link:hover, .bio-pub-link:focus-visible { color: var(--color-gold); }
+
 @media (max-width: 720px) {
   .bio-grid { grid-template-columns: 1fr; }
   .bio-photo { max-width: 240px; }

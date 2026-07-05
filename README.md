@@ -10,6 +10,7 @@ pubblicazione gratuita su GitHub Pages.
   sono variabili CSS in cima al file, pensate per essere iterate con Claude Design
 - `js/main.js` — cielo stellato animato, menu mobile, animazioni di comparsa
 - `fonts/` — font self-hosted (Cormorant Garamond e Source Sans 3, licenze OFL incluse)
+- `ricerche/` — pubblicazioni scaricabili (la ricerca sui ritorni di Saturno e Urano, in PDF)
 - `favicon.svg` — icona del sito (luna e stella)
 
 ## Dati da personalizzare
@@ -18,7 +19,7 @@ Cerca i segnaposto tra `[PARENTESI]` in `index.html`:
 
 | Sezione | Cosa inserire |
 | --- | --- |
-| Chi sono | `[ANNI DI ESPERIENZA]`, `[COME TI SEI AVVICINATO …]`, `[FORMAZIONE …]`, foto (`[FOTO]` → `img/fabio.jpg`) |
+| Chi sono | `[ANNI DI ESPERIENZA]`, `[COME TI SEI AVVICINATO …]`, `[FORMAZIONE — eventuali corsi/scuole/maestri]`, foto (`[FOTO]` → `img/fabio.jpg`) |
 | Servizi | durata e prezzo di ogni servizio (ora indicati come "in arrivo") |
 | Testimonianze | `[TESTIMONIANZA 1/2/3]` con recensioni reali |
 | Contatti | `[EMAIL]`, `[NUMERO-WHATSAPP]` (formato internazionale, es. 39333…), `[PROFILO-INSTAGRAM]` |
