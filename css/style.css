@@ -535,6 +535,72 @@ html { scroll-behavior: smooth; }
   letter-spacing: 0.05em;
 }
 
+/* ---------- Caelum ---------- */
+#caelum {
+  background: radial-gradient(ellipse at 90% 50%, rgba(138, 123, 216, 0.1), transparent 55%);
+}
+.app-grid {
+  display: grid;
+  grid-template-columns: 1fr minmax(180px, 240px);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+.app-intro { margin-bottom: 1.6rem; }
+.app-features {
+  list-style: none;
+  margin: 0 0 2rem;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+.app-features li {
+  color: var(--color-text-muted);
+  font-size: 0.97rem;
+  padding-left: 1.6rem;
+  position: relative;
+}
+.app-features li::before {
+  content: "\2726";
+  position: absolute;
+  left: 0;
+  color: var(--color-gold);
+  font-size: 0.85rem;
+}
+.app-features strong { color: var(--color-gold-soft); font-weight: 600; }
+.app-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.2rem;
+  margin: 0;
+}
+.app-badge {
+  display: inline-block;
+  border: 1px solid var(--color-gold);
+  color: var(--color-gold);
+  border-radius: 999px;
+  padding: 0.4rem 1.1rem;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+.app-cta {
+  color: var(--color-gold-soft);
+  font-size: 0.95rem;
+  text-decoration-color: rgba(212, 175, 105, 0.4);
+  text-underline-offset: 4px;
+  transition: color 0.25s var(--ease);
+}
+.app-cta:hover, .app-cta:focus-visible { color: var(--color-gold); }
+.app-visual { color: var(--color-gold); }
+.app-visual svg { width: 100%; max-width: 240px; margin: 0 auto; display: block; }
+
+@media (max-width: 720px) {
+  .app-grid { grid-template-columns: 1fr; }
+  .app-visual { order: -1; }
+  .app-visual svg { max-width: 170px; }
+}
+
 /* ---------- Contatti ---------- */
 .contact-links {
   display: grid;
