@@ -9,6 +9,7 @@ pubblicazione gratuita su GitHub Pages.
 - `css/style.css` — stili; tutte le scelte grafiche (colori, font, spaziature)
   sono variabili CSS in cima al file, pensate per essere iterate con Claude Design
 - `js/main.js` — cielo stellato animato, menu mobile, animazioni di comparsa
+- `fonts/` — font self-hosted (Cormorant Garamond e Source Sans 3, licenze OFL incluse)
 - `favicon.svg` — icona del sito (luna e stella)
 
 ## Dati da personalizzare
