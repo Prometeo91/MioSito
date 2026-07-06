@@ -22,7 +22,7 @@ Cerca i segnaposto tra `[PARENTESI]` in `index.html`:
 | Chi sono | foto (`[FOTO]` → `img/fabio.jpg`) — la bio è completa |
 | Servizi | durata e prezzo di ogni servizio (ora indicati come "in arrivo") |
 | Testimonianze | `[TESTIMONIANZA 1/2/3]` con recensioni reali |
-| Contatti | `[EMAIL]`, `[NUMERO-WHATSAPP]` (formato internazionale, es. 39333…), `[PROFILO-INSTAGRAM]` |
+| Contatti | `[PROFILO-INSTAGRAM]` — email e WhatsApp sono già inseriti |
 | Caelum | quando l'app sarà su Google Play: nella sezione `#caelum` sostituire il badge "Presto su Google Play" e la CTA "Scrivimi" con il link reale allo store |
 
 ## Pubblicazione su GitHub Pages
