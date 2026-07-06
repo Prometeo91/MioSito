@@ -19,7 +19,7 @@ Cerca i segnaposto tra `[PARENTESI]` in `index.html`:
 
 | Sezione | Cosa inserire |
 | --- | --- |
-| Chi sono | `[ANNI DI ESPERIENZA]`, `[COME TI SEI AVVICINATO …]`, `[FORMAZIONE — eventuali corsi/scuole/maestri]`, foto (`[FOTO]` → `img/fabio.jpg`) |
+| Chi sono | foto (`[FOTO]` → `img/fabio.jpg`) — la bio è completa |
 | Servizi | durata e prezzo di ogni servizio (ora indicati come "in arrivo") |
 | Testimonianze | `[TESTIMONIANZA 1/2/3]` con recensioni reali |
 | Contatti | `[EMAIL]`, `[NUMERO-WHATSAPP]` (formato internazionale, es. 39333…), `[PROFILO-INSTAGRAM]` |

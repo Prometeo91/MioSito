@@ -715,3 +715,4 @@ html { scroll-behavior: smooth; }
 .reveal.visible :is(.card, .step, .quote, .contact-link):nth-child(4) { animation-delay: 0.24s; }
 .reveal.visible :is(.card, .step, .quote, .contact-link):nth-child(5) { animation-delay: 0.32s; }
 .reveal.visible :is(.card, .step, .quote, .contact-link):nth-child(6) { animation-delay: 0.4s; }
+.reveal.visible :is(.card, .step, .quote, .contact-link):nth-child(7) { animation-delay: 0.48s; }
