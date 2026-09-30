@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0d1026"/>
+  <g fill="#e8cf9a" opacity="0.5">
+    <circle cx="1090" cy="90" r="2"/>
+    <circle cx="1010" cy="160" r="1.5"/>
+    <circle cx="1130" cy="230" r="1.5"/>
+    <circle cx="700" cy="70" r="1.5"/>
+    <circle cx="560" cy="120" r="1"/>
+    <circle cx="120" cy="520" r="1.5"/>
+    <circle cx="330" cy="560" r="1"/>
+    <circle cx="1080" cy="540" r="2"/>
+  </g>
+  <g transform="translate(88 135) scale(3.6)">
+    <path d="M64 18 A 36 36 0 1 0 64 82 A 29 29 0 1 1 64 18 Z" fill="#d4af69"/>
+    <path d="M70 34 L72.6 40.4 L79 43 L72.6 45.6 L70 52 L67.4 45.6 L61 43 L67.4 40.4 Z" fill="#e8cf9a"/>
+  </g>
+  <text x="440" y="300" font-family="'Cormorant Garamond', serif" font-weight="600" font-size="112" fill="#ffffff">Fabio Piscopo</text>
+  <rect x="444" y="335" width="120" height="2" fill="#d4af69"/>
+  <text x="444" y="400" font-family="'Source Sans 3', sans-serif" font-weight="400" font-size="44" fill="#e8cf9a" letter-spacing="1">Astrologo e Tarologo</text>
+  <text x="444" y="560" font-family="'Source Sans 3', sans-serif" font-weight="400" font-size="26" fill="#ffffff" fill-opacity="0.7" letter-spacing="2">fabiopiscopo.com</text>
+</svg>

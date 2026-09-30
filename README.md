@@ -12,6 +12,9 @@ pubblicazione gratuita su GitHub Pages.
 - `fonts/` - font self-hosted (Cormorant Garamond e Source Sans 3, licenze OFL incluse)
 - `ricerche/` - pubblicazioni scaricabili (la ricerca sui ritorni di Saturno e Urano, in PDF)
 - `favicon.svg` - icona del sito (luna e stella)
+- `robots.txt` e `sitemap.xml` - indicizzazione sui motori di ricerca
+- `og-image.png` - immagine di anteprima nelle condivisioni sui social
+  (sorgente in `img/og-image.svg`, da rigenerare con `rsvg-convert` a 1200x630)
 
 ## Dati da personalizzare
 

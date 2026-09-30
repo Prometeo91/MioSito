@@ -26,7 +26,9 @@ pubblicato su GitHub Pages dal branch `main` con dominio `fabiopiscopo.com`.
 - Non modificare i contenuti astrologici (interpretazioni, date, nomi di
   servizi) senza istruzione esplicita. Le modifiche di forma sono libere
 - Segnaposto ancora presenti, da lasciare finché non arrivano i dati:
-  `[PROFILO-INSTAGRAM]`, `[TESTIMONIANZA 1/2/3]`, "Durata e prezzo: in arrivo"
+  `[PROFILO-INSTAGRAM]` e `[PROFILO - da inserire]` (link Instagram),
+  `[TESTIMONIANZA 1/2/3]` e `[Nome], [città]` (testimonianze),
+  "Durata e prezzo: in arrivo" (card dei servizi)
 
 ## Convenzioni di codice
 
