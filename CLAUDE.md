@@ -41,10 +41,12 @@ pubblicato su GitHub Pages dal branch `main` con dominio `fabiopiscopo.com`.
 
 ## Git
 
-- Sviluppo sul branch `claude/astrologer-portfolio-prompt-b0x535`; il merge su
-  `main` lo fa il proprietario (o su sua richiesta esplicita)
+- Sviluppo sul branch di lavoro della sessione, mai direttamente su `main`;
+  il merge su `main` lo fa il proprietario (o su sua richiesta esplicita)
 - Messaggi di commit in italiano, all'imperativo, una riga di sintesi
-- Mai nomi di modelli AI nei messaggi di commit, nei commenti o nei file del sito
+- Mai nomi di modelli AI (Opus, Sonnet, Fable...) nei messaggi di commit, nei
+  commenti o nei file del sito. Il riferimento a Claude Design nel README è
+  voluto dal proprietario: non rimuoverlo
 - Non aprire pull request se non richiesto
 
 ## Verifica locale
